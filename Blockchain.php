@@ -113,23 +113,4 @@ function sha256_hash(...$args) {
     }
   }
 
-function main(){
-    $blockchain = new Blockchain();
-    $database = ["Hello world", "hello", "What's up", "Bye"];
-    $num = 0;
-    foreach($database as $data){
-        $num += 1;
-        $blockchain->mine(new Block(data:$data, number:$num));
-    }
-    foreach($blockchain->chain as $block){
-        print($block);
-    }
-    $blockchain->chain[2]->data = "New Data";
-    $blockchain->mine($blockchain->chain[2]);
-    if($blockchain->isValid() == TRUE)  print("True");
-    else    print("False");
-}
-
-main();
-
 ?>
