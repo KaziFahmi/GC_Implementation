@@ -21,17 +21,20 @@ function sql_raw($query_string)
   $conn = connect();
   $result = $conn->query($query_string);
   disconnect($conn);
-  return $result->fetch_assoc();
+  if($result == TRUE || $result == FALSE){
+    return $result;
+  }
+  else{
+    return $result->fetch_assoc();
+  }
 }
 
-class Table
-{
+class Table{
   public $table;
   public $columns;
   public $columnsList;
 
-  function __construct($tableName, ...$args)
-  {
+  function __construct($tableName, ...$args){
     $this->table = $tableName;
     $this->columns = "(" . implode(",", $args) . ")";
     $this->columnsList = $args;
@@ -53,6 +56,13 @@ class Table
   {
     $conn = connect();
     $result = $conn->query("SELECT * FROM $this->table");
+    disconnect($conn);
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+    return $data;
+  }
+  function getGroup($search, $value){
+    $conn = connect();
+    $result = $conn->query("SELECT * FROM $this->table WHERE $search = '$value'");
     disconnect($conn);
     $data = $result->fetch_all(MYSQLI_ASSOC);
     return $data;
@@ -107,5 +117,13 @@ class Table
     $conn = connect();
     $conn->query("INSERT INTO $this->table $this->columns VALUES($data)");
     disconnect($conn);
+  }
+
+  function noOfEntries(){
+    $conn = connect();
+    $result = $conn->query("SELECT COUNT(*) AS num_entries FROM $this->table");
+    disconnect($conn);
+    $data = $result->fetch_assoc();
+    return $data['num_entries'];
   }
 }

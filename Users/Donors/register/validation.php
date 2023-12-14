@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_data = $donors->getOne('username', $username);
     if($user_data == null){
         $donors->insert($name, $email, $username, hash('sha256', $password));
+        $user_data = $donors->getOne('username', $username);
         session_start();
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['usertype'] = 'donor';

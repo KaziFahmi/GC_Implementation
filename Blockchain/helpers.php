@@ -50,30 +50,38 @@ function sync_blockchain($blockchain)
 function get_donation_sum($person_involved)
 {
     $result = sql_raw("SELECT SUM(value) AS donation_sum FROM `blockchain` WHERE type = 'donation' AND person_involved = '$person_involved'");
+    if($result == FALSE){
+        return 0;
+    }
+    $result = $result->fetch_assoc();
     return $result['donation_sum'];
 }
 
 function get_all_donation_sum()
 {
     $result = sql_raw("SELECT SUM(value) AS total_donations FROM `blockchain` WHERE type = 'donation'");
+    $result = $result->fetch_assoc();
     return $result['total_donations'];
 }
 
 function get_incentive_sum($person_involved)
 {
     $result = sql_raw("SELECT SUM(value) AS incentive_sum FROM `blockchain` WHERE type = 'incentive' AND person_involved = '$person_involved'");
+    $result = $result->fetch_assoc();
     return $result['incentive_sum'];
 }
 
 function get_all_incentive_sum()
 {
     $result = sql_raw("SELECT SUM(value) AS total_incentive FROM `blockchain` WHERE type = 'incentive'");
+    $result = $result->fetch_assoc();
     return $result['total_incentive'];
 }
 
 function get_withdrawal_sum($person_involved)
 {
     $result = sql_raw("SELECT SUM(value) AS withdrawal_sum FROM `blockchain` WHERE type = 'withdraw' AND person_involved = '$person_involved'");
+    $result = $result->fetch_assoc();
     return $result['withdrawal_sum'];
 }
 

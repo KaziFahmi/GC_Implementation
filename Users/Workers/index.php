@@ -4,6 +4,7 @@
     <title>Worker Login</title>
 </head>
 <body>
+    <?php echo "<a href='../index.php'><button>Home</button></a><br>"; ?>
     <h2>Login</h2>
     <?php 
         if (isset($_GET["message"])){
