@@ -7,7 +7,7 @@ require_once "Blockchain\Block.php";
 function main()
 {
     
-    // $blockchainTable = new Table("blockchain", "number", "hash", "previous", "type", 'value', "person_involved", "nonce");
+    $workTable = new Table("work", "person_involved", "work_type", "amount");
     // $blockchainTable->deleteAll();
     // $blockchain = get_blockchain();
     // $blockchain->mine(new Block(type:'donation', value: 1000, person_involved: 'fahmi'));
