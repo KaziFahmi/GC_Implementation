@@ -1,4 +1,5 @@
 <?php
+    require_once 'C:\xampp\htdocs\GC_Implementation\sql\sqlhelpers.php';
     require_once 'C:\xampp\htdocs\GC_Implementation\Blockchain\helpers.php';
 
     function isLoggedIn(){
@@ -23,13 +24,11 @@
         return $incentive_received;
     }
     function report_work($amount, $work_type){
-        $blockchain = get_blockchain();
+        $workTable = new Table("work", "person_involved", "work_type", "amount");
         $type = 'work:' . $work_type;
         $value = $amount;
         $person_involved = $_SESSION['userdata']['username'];
-        $blockchain->mine(new Block(type:$type, value: $value, person_involved: $person_involved));
-        $status = sync_blockchain($blockchain);
+        $workTable->insert($person_involved, $type, $value);
         
-        return $status;
     }
 ?>
