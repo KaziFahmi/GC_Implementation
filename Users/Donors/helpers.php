@@ -1,6 +1,5 @@
 <?php
 require_once 'C:\xampp\htdocs\GC_Implementation\Blockchain\helpers.php';
-require_once 'C:\xampp\htdocs\GC_Implementation\sql\sqlhelpers.php';
 function isLoggedIn()
 {
     session_start();

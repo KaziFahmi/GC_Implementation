@@ -19,8 +19,8 @@ isLoggedIn();
     <h3>Donate Money:</h3>
     <?php 
         if (isset($_GET["message"])){
-            $message = $_GET["message"];
-            $messagetype = $_GET['messagetype'];
+            $message = urldecode($_GET["message"]);
+            $messagetype = urldecode($_GET['messagetype']);
             if($messagetype == 'success'){
                 $color = 'green';
             }
