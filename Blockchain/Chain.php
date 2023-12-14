@@ -28,16 +28,12 @@ require_once 'Block.php';
   
     // Mines a block and adds it to the chain
     public function mine(Block $block) {
-      try {
-        // Set previous hash based on the previous block
-        $previousHash = end($this->chain);
-        if($previousHash != FALSE){
-            $block->previousHash = $previousHash->hash();
-        }
-      } catch (Exception $e) {
-        // Ignore error if it's the first block
+      // Set the block number
+      $block->number = count($this->chain)+1;
+      $previousBlock = end($this->chain);
+      if($previousBlock != FALSE){
+        $block->previousHash = $previousBlock->hash();
       }
-  
       // Loop until a valid hash is found
       while (true) {
         $hash = $block->hash();

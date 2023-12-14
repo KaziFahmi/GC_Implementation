@@ -2,6 +2,7 @@
 
 require_once 'C:\xampp\htdocs\GC_Implementation\sql\sqlhelpers.php';
 require_once 'Chain.php';
+
 function get_blockchain()
 {
     $blockchain = new Chain();
@@ -14,7 +15,7 @@ function get_blockchain()
                 $blockData["previous"],
                 $blockData["type"],
                 (int) $blockData["value"],
-                $blockchain['person_involved'],
+                $blockData['person_involved'],
                 (int) $blockData["nonce"]
             )
         );
@@ -32,7 +33,7 @@ function sync_blockchain($blockchain)
         foreach ($blockchain->chain as $block) {
             $blockchainTable->insert(
                 (string) $block->number,
-                $block->hash,
+                $block->hash(),
                 $block->previousHash,
                 $block->type,
                 $block->value,
@@ -87,3 +88,6 @@ function get_withdrawal_sum($person_involved)
 //     $result = sql_raw("SELECT SUM('value') as sum FROM 'blockchain' WHERE person_involved='$person_involved' AND type='work:reforestation'");
 //     return $result['sum'];
 // }
+
+
+?>

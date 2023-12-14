@@ -1,22 +1,28 @@
 <?php
 require_once "sql/sqlhelpers.php";
 require_once "Blockchain/helpers.php";
+require_once "Blockchain\Chain.php";
+require_once "Blockchain\Block.php";
 
 function main()
 {
-
-    $blockchain = new Table("blockchain", "number", "hash", "previous", "type", "value", "person_involved", "nonce");
-    // $blockchain->drop();
-
-    // $blockchain->insert("1", "1234", "0000", "donation", "1000", "fahmi", "1234");
-    // $blockchain->insert("2", "2345", "1234", "donation", "1000", "anne", "1234");
-    // $blockchain->insert("3", "3456", "2345", "work:reforestation", "5", "dulok", "1234");
-    // $blockchain->insert("4", "4567", "3456", "work:conservation", "6", "shahil", "1234");
-    // $blockchain->insert("5", "5678", "4567", "incentive", "500", "dulok", "1234");
-    // $blockchain->insert("6", "6789", "5678", "donation", "600", "shahil", "1234");
-    // $blockchain->insert("5", "7890", "6789", "incentive", "900", "turzo", "1234");
-    // $blockchain->insert("6", "2828", "7890", "withdraw", "300", "dulok", "1234");
-    // $blockchain->insert("5", "8584", "2828", "withdraw", "500", "turzo", "1234");
+    
+    // $blockchainTable = new Table("blockchain", "number", "hash", "previous", "type", 'value', "person_involved", "nonce");
+    // $blockchainTable->deleteAll();
+    // $blockchain = get_blockchain();
+    // $blockchain->mine(new Block(type:'donation', value: 1000, person_involved: 'fahmi'));
+    // $blockchain->mine(new Block(type:'donation', value: 2000, person_involved: 'dulok'));
+    // $blockchain->mine(new Block(type:'incentive', value: 200, person_involved: 'anne'));
+    // $blockchain->mine(new Block(type:'incentive', value: 500, person_involved: 'shahil'));
+    // $blockchain->mine(new Block(type:'Withdraw', value: 100, person_involved: 'anne'));
+    // $blockchain->mine(new Block(type:'withdraw', value: 200, person_involved: 'shahil'));
+    // sync_blockchain($blockchain);
+    // if($blockchain->isValid()){
+    //     print("Is Valid");
+    // }
+    // else{
+    //     print("Is not Valid");
+    // }
 
 
 }
