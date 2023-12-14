@@ -17,18 +17,24 @@
 
     function get_incentive_received(){
         $user_name = $_SESSION['userdata']['username'];
-        $incentive_received = get_incentive_sum($user_name);
-        if ($incentive_received == null) {
-            $incentive_received = 0;
+        $incentives_received = get_incentive_sum($user_name);
+        if ($incentives_received == null) {
+            $incentives_received = 0;
         }
-        return $incentive_received;
+        $incentives_withdrawn = get_withdrawal_sum($user_name);
+        if ($incentives_withdrawn == null) {
+            $incentives_withdrawn = 0;
+        }
+        $incentives_remaining = $incentives_received - $incentives_withdrawn;
+        return $incentives_remaining;
     }
     function report_work($amount, $work_type){
-        $workTable = new Table("work", "person_involved", "work_type", "amount");
+        $workTable = new Table("work", "entry", "person_involved", "work_type", "amount", "status");
+        $key = $workTable->noOfEntries()+1;
         $type = 'work:' . $work_type;
         $value = $amount;
         $person_involved = $_SESSION['userdata']['username'];
-        $workTable->insert($person_involved, $type, $value);
-        
+        $status = 'pending';
+        $workTable->insert($key, $person_involved, $type, $value, $status);
     }
 ?>

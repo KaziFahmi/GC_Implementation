@@ -7,7 +7,8 @@ require_once "Blockchain\Block.php";
 function main()
 {
     
-    $workTable = new Table("work", "person_involved", "work_type", "amount");
+    // $blockchainTable = new Table("blockchain", "number", "hash", "previous", "type", 'value', "person_involved", "nonce");
+    // print($blockchainTable->noOfEntries());
     // $blockchainTable->deleteAll();
     // $blockchain = get_blockchain();
     // $blockchain->mine(new Block(type:'donation', value: 1000, person_involved: 'fahmi'));
@@ -23,6 +24,10 @@ function main()
     // else{
     //     print("Is not Valid");
     // }
+
+    $workTable = new Table("test", "key", "person_involved", "work_type", "amount", "status");
+    // print(isNewTable($workTable->table));
+    // $workTable->drop();
 
 
 }
