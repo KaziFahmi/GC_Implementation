@@ -1,5 +1,6 @@
 <?php
 require_once 'C:\xampp\htdocs\GC_Implementation\Blockchain\helpers.php';
+require_once 'C:\xampp\htdocs\GC_Implementation\sql\sqlhelpers.php';
 function isLoggedIn()
 {
     session_start();
@@ -20,4 +21,17 @@ function get_amount_donated()
         $amount_donated = 0;
     }
     return $amount_donated;
+}
+
+
+function donate($amount)
+{
+    $blockchain = get_blockchain();
+    $type = 'donation';
+    $value = $amount;
+    $person_involved = $_SESSION['userdata']['username'];
+    $blockchain->mine(new Block(type:$type, value: $value, person_involved: $person_involved));
+    $status = sync_blockchain($blockchain);
+    
+    return $status;
 }
