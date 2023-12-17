@@ -4,12 +4,75 @@ isLoggedIn();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donor Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #cce5cc; /* Light green background */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Dark text color */
+        }
+
+        h1, h2, h3, h4 {
+            color: #004d00; /* Dark green text color */
+            text-align: center/* Forest green heading color */
+        }
+        label{
+            text-align: center
+        }
+
+        button {
+            background-color: #228b22; /* Forest green button color */
+            color: #fff;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2e8b57; /* Darker green on hover */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White form background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #228b22; /* Forest green submit button color */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2e8b57; /* Darker green on hover */
+        }
+    </style>
 </head>
+<?php include 'navbar.php'; ?>
 <body>
-    <a href='logout.php'><button>Log Out</button></a> 
+    <a href='logout.php'><button>Log Out</button></a>
     <h1>Dashboard</h1>
     <?php
         $amount_donated = get_amount_donated();
@@ -27,14 +90,14 @@ isLoggedIn();
             else{
                 $color = 'red';
             }
-            $script = "<label style='color:$color'> $message </label>";
+            $script = "<label style='color:$color;text-align:center'> $message </label>";
             echo $script;
         }
     ?>
     <form action="donation_processing.php" method="post">
-        Amount: <input type="number" name="amount"><br>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount"><br>
         <input type="submit" value="Donate">
     </form>
-    
 </body>
 </html>

@@ -3,8 +3,73 @@
 <head>
     <title>Organization Login</title>
 </head>
+<style>
+        body {
+            background-color: #cce5cc; /* Light green background color */
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            color: #004d00; /* Dark green text color */
+            text-align: center
+        }
+
+        form {
+            background-color: #ffffff; /* White background for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+            margin-top: 20px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green submit button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #004d00; /* Dark green text color for the link */
+            text-decoration: none;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+    </head>
+    <?php include 'navbar.php'; ?>
 <body>
-    <?php echo "<a href='../index.php'><button>Home</button></a><br>"; ?>
     <h2>Login</h2>
     <?php 
         if (isset($_GET["message"])){

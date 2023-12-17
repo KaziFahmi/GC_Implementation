@@ -1,6 +1,6 @@
 <?php
-    require_once 'C:\xampp\htdocs\GC_Implementation\Blockchain\helpers.php';
-    function isLoggedIn(){
+require_once '../../Blockchain/helpers.php';
+function isLoggedIn(){
         session_start();
         if($_SESSION['loggedin'] == TRUE && $_SESSION['usertype'] == 'organization'){
             return TRUE;

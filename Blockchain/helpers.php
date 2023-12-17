@@ -1,6 +1,6 @@
 <?php
 
-require_once 'C:\xampp\htdocs\GC_Implementation\sql\sqlhelpers.php';
+include_once '../../sql/sqlhelpers.php';
 require_once 'Chain.php';
 
 function get_blockchain()

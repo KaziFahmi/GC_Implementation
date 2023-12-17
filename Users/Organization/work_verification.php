@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\GC_Implementation\Users\Organization\helpers.php';
+require_once 'helpers.php';
 isLoggedIn();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
