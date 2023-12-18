@@ -19,7 +19,7 @@ isLoggedIn();
         }
 
         h1, h2, h3, h4 {
-            color: #004d00; /* Dark green text color */
+            color: Red; /* Dark green text color */
             text-align: center/* Forest green heading color */
         }
         label{
@@ -89,15 +89,7 @@ isLoggedIn();
 </head>
 <?php include 'navbar.php'; ?>
 <body>
-    <a href='logout.php'><button class="logout">Log Out</button></a>
-    <h1>Dashboard</h1>
-    <?php
-        $amount_donated = get_amount_donated();
-    ?>
-    <h4>Amount donated by you so far: <?php echo $amount_donated ?> Taka </h4>
-    <a href='under_construction.php'><button class="payment">Bkash</button></a><br>
-    <a href='under_construction.php'><button class="payment">Visa</button></a><br>
-    <a href='pay_through_us.php'><button class="payment">Pay Through Us</button></a><br>
-
+ <a href='logout.php'><button class="logout">Log Out</button></a>
+    <h2>Not yet added</h2>
 </body>
 </html>

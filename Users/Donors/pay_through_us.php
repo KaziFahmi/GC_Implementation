@@ -8,7 +8,7 @@ isLoggedIn();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donor Dashboard</title>
+    <title>Payment</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -90,14 +90,31 @@ isLoggedIn();
 <?php include 'navbar.php'; ?>
 <body>
     <a href='logout.php'><button class="logout">Log Out</button></a>
-    <h1>Dashboard</h1>
+    <h1>Pay Through Us</h1>
     <?php
         $amount_donated = get_amount_donated();
     ?>
+    <h2>Your contributions play a crucial role towards the well being of the earth.</h2>
     <h4>Amount donated by you so far: <?php echo $amount_donated ?> Taka </h4>
-    <a href='under_construction.php'><button class="payment">Bkash</button></a><br>
-    <a href='under_construction.php'><button class="payment">Visa</button></a><br>
-    <a href='pay_through_us.php'><button class="payment">Pay Through Us</button></a><br>
-
+    <h3>Donate Money:</h3>
+    <?php 
+        if (isset($_GET["message"])){
+            $message = urldecode($_GET["message"]);
+            $messagetype = urldecode($_GET['messagetype']);
+            if($messagetype == 'success'){
+                $color = 'green';
+            }
+            else{
+                $color = 'red';
+            }
+            $script = "<label style='color:$color;text-align:center'> $message </label>";
+            echo $script;
+        }
+    ?>
+    <form action="donation_processing.php" method="post">
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount"><br>
+        <input type="submit" value="Donate">
+    </form>
 </body>
 </html>

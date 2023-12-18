@@ -34,7 +34,7 @@
             background-color: #2e8b57; /* Darker green on hover */
         }
 
-        form {
+        .workset {
             max-width: 300px;
             margin: 20px auto;
             padding: 20px;
@@ -67,6 +67,27 @@
 
         h4 {
             margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color:white
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #228b22; /* Forest green table header color */
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row color */
         }
     </style>
 </head>
@@ -101,7 +122,7 @@
                 echo $script;
             }
         ?>
-        <form action="work_processing.php" method="post">
+        <form class="workset" action="work_processing.php" method="post">
             <label for="choice">Type of Work:</label>
             <select id="choice" name="choice">
                 <option value="reforestation">Reforestation</option>
@@ -111,6 +132,29 @@
             <input type="number" name="amount"> <br>
             <input type="submit" value="Report">
         </form>
+        <br/>
+        <h3>Work History:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Entry ID</th>
+                    <th>Work Type</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($work_list as $row): ?>
+                <tr>
+                    <td><?php echo $row['entry']; ?></td>
+                    <td><?php echo $row['work_type']; ?></td>
+                    <td><?php echo $row['amount']; ?></td>
+                    <td><?php echo $row['status']; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+    
 </body>
 </html>
