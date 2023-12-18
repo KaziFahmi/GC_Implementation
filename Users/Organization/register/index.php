@@ -54,6 +54,15 @@
             color: #004d00; /* Dark green text color for the link */
             text-decoration: none;
         }
+        .acc_button{
+          
+          width:250px;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          
+      }
+
 
         button {
             background-color: #4CAF50; /* Green button color */
@@ -88,7 +97,8 @@
         <input type="submit" value="Register">
     </form>
 
-    <?php echo "<a href='../'><button>Already have an account? Log In!</button></a>"; ?>
-    
+    <div class="acc_button">
+         <a href='../'><button>Don't have an account? Create one!</button></a>
+    </div>    
 </body>
 </html>

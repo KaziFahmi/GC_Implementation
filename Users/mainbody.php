@@ -29,7 +29,7 @@
         button {
             display: block;
             width: 100%;
-            max-width: 200px; /* Adjust the maximum width as needed */
+            max-width: 200px; 
             margin: 10px auto;
             padding: 60px;
             font-size: 16px;
@@ -51,18 +51,27 @@
                 max-width: none; /* Remove maximum width for smaller screens */
             }
         }
+
+        .buttonset{
+            /* background-color:red; */
+            width:200px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            
+        }
     </style>
 </head>
 <body>
     <div>
-        <?php
-            echo "<h2>Helping the Forest of Earth</h2>";
-            echo "<label>Select what kind of user you are: </label><br>";
-        ?>
+        <h2>Helping the Forest of Earth</h2>
+        <label>Select what kind of user you are: </label><br>
 
-        <?php echo "<a href='Donors'><button>Donor</button></a><br>"; ?>
-        <?php echo "<a href='Organization'><button>Organization</button></a><br>"; ?>
-        <?php echo "<a href='Workers'><button>Worker</button></a><br>"; ?>
+        <div class="buttonset">
+            <a href='Donors'><button>Donor</button></a><br>
+            <a href='Organization'><button>Organization</button></a><br>
+            <a href='Workers'><button>Worker</button></a><br>
+        </div>
     </div>
 </body>
 </html>
