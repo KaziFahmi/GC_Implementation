@@ -11,6 +11,21 @@ function main()
     // print($blockchainTable->noOfEntries());
     // $blockchainTable->deleteAll();
     // $blockchain = get_blockchain();
+    // $block = $blockchain->chain[21];
+    // print($block);
+    // print("<br>");
+    // $block->value = 10;
+    // $blockchain->mine($block);
+    // if($blockchain->isValid()){
+    //     print("True");
+    // }
+    // else{
+    //     print('False');
+    // }
+
+
+
+
     // $blockchain->mine(new Block(type:'donation', value: 1000, person_involved: 'fahmi'));
     // $blockchain->mine(new Block(type:'donation', value: 2000, person_involved: 'dulok'));
     // $blockchain->mine(new Block(type:'incentive', value: 200, person_involved: 'anne'));

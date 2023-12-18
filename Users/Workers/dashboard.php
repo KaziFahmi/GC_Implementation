@@ -77,6 +77,9 @@
     <h1>Dashboard</h1>
     <?php
         $incentive_received = get_incentive_received();
+        $work_table = new Table("work", "entry", "person_involved", "work_type", "amount", "status");
+        $username = $_SESSION['userdata']['username'];
+        $work_list = $work_table->getGroup('person_involved', $username);
     ?>
     <h2>Your contributions play a crucial role towards the well-being of the earth.</h2>
     <h4>You have <?php echo $incentive_received; ?> Taka of incentives in your account.<br>

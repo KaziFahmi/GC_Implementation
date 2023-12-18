@@ -53,7 +53,17 @@
     </header>
 
     <nav>
-        <a href="../index.php">Home</a>
+    <a href="<?php 
+        session_start();
+        if(isset($_SESSION['loggedin']) && isset($_SESSION['usertype'])){
+            if ($_SESSION['loggedin'] == TRUE && $_SESSION['usertype'] == 'worker'){
+                $redirect = 'dashboard.php';
+            }
+        }
+        else{
+            $redirect = '../index.php';
+        }
+        echo $redirect; ?>">Home</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
     </nav>
