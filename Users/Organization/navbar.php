@@ -66,7 +66,13 @@
         echo $redirect; ?>">Home</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
-        <a href='register'>Create an Organizational Account</a>
+        <?php 
+            if(isset($_SESSION['loggedin']) && isset($_SESSION['usertype'])){
+                if ($_SESSION['loggedin'] == TRUE && $_SESSION['usertype'] == 'organization'){
+                   echo "<a href='register'>Create an Organizational Account</a>";
+                }
+            }
+         ?>
     </nav>
 
     <!-- The rest of your page content goes here -->

@@ -98,7 +98,7 @@
     </form>
 
     <div class="acc_button">
-        <a href='../'><button>Don't have an account? Create one!</button></a>
+        <a href='../'><button>Already have an account? Log In!</button></a>
     </div>
     
 </body>

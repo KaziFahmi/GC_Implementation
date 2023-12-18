@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap">
-    <title>Your Green Website</title>
+    <title>GreenLink</title>
     <style>
         body {
             background-color: #cce5cc; /* Yellowish Green or Very Light Green */

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+        if($_SESSION['loggedin'] != TRUE && $_SESSION['usertype'] != 'organization'){
+            $message = "Unauthorized Access.";
+            header("Location: ../index.php?message=$message");
+            exit;
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
