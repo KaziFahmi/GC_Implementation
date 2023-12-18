@@ -87,7 +87,7 @@ isLoggedIn();
         }
     </style>
 </head>
-<?php include 'navbar.php'; ?>
+<?php include 'inside_navbar.php'; ?>
 <body>
  <a href='logout.php'><button class="logout">Log Out</button></a>
     <h2>Not yet added</h2>

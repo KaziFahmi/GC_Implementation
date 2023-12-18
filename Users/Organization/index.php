@@ -74,6 +74,11 @@
         button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
+
+        .credential_message {
+            justify-content: center;
+            text-align: center;
+        }
     </style>
     </head>
     <?php include 'navbar.php'; ?>
@@ -91,10 +96,9 @@
         Username: <input type="text" name="username"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" value="Login">
-    </form>
-
-    <div class="acc_button">
-        <a href='register'><button>Don't have an account? Create one!</button></a>
-    </div>    
+    </form><br>
+    <div class = 'credential_message'>
+        <label>Contact the Organization for your login credentials.</label> 
+    </div> 
 </body>
 </html>

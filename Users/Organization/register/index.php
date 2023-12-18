@@ -97,8 +97,8 @@
         <input type="submit" value="Register">
     </form>
 
-    <div class="acc_button">
+    <!-- <div class="acc_button">
          <a href='../'><button>Don't have an account? Create one!</button></a>
-    </div>    
+    </div>     -->
 </body>
 </html>

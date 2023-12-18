@@ -53,20 +53,9 @@
     </header>
 
     <nav>
-    <a href="<?php 
-        session_start();
-        if(isset($_SESSION['loggedin']) && isset($_SESSION['usertype'])){
-            if ($_SESSION['loggedin'] == TRUE && $_SESSION['usertype'] == 'organization'){
-                $redirect = 'dashboard.php';
-            }
-        }
-        else{
-            $redirect = '../index.php';
-        }
-        echo $redirect; ?>">Home</a>
+        <a href="dashboard.php">Home</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
-        <a href='register'>Create an Organizational Account</a>
     </nav>
 
     <!-- The rest of your page content goes here -->
